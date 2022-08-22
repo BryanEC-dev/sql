@@ -1,0 +1,12 @@
+select  carrera_id, fecha_incorporacion from platzi.alumnos 
+group by carrera_id, fecha_incorporacion
+order by fecha_incorporacion desc 
+limit 1;
+
+select * from (
+		select carrera_id, max(fecha_incorporacion) as fecha
+		from platzi.alumnos 
+		group by carrera_id
+		order by carrera_id
+) as carrera
+order by fecha desc
